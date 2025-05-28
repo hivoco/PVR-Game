@@ -130,14 +130,14 @@ const Result = () => {
           </div>
         </div>
 
-        <div
+        {/* <div
           className={`absolute bottom-[6vh] left-1/2 -translate-x-1/2
           transition-all duration-1000 ease-in-out
           ${isLoaded ? "translate-y-0" : "translate-y-[200%]"}
           `}
         >
           <Button title="CLAIM" />
-        </div>
+        </div> */}
 
         {/* <div className="relative inline-block">
             <Image

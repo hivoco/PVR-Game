@@ -223,9 +223,16 @@ export default function Quiz() {
 
     const timer = setTimeout(() => {
       setDisplayOverlay(false);
-    }, 1000);
+    }, 1500);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (!response.user_answer) return;
+      setTimeout(() => {
+        response.user_answer ? nextQuestion() : null;
+        setResponse("");
+      }, 1500);
+    };
   }, [displayOverlay]);
 
   useEffect(() => {
@@ -240,6 +247,12 @@ export default function Quiz() {
       insertRecord();
     }
   }, [ansResponseArray.length]);
+
+  // useEffect(() => {
+  //   if (!response.user_answer) return;
+  //   response.user_answer ? nextQuestion() : null;
+  //   setResponse("");
+  // }, [response.user_answer]);
 
   // if(!questionData.length) return <div>loading ....</div>
   const currentQuestion = questionData[questionIndex];
@@ -429,7 +442,7 @@ export default function Quiz() {
           </div>
         </section>
 
-        <div
+        {/* <div
           onClick={() => {
             response.user_answer ? nextQuestion() : null;
             setResponse("");
@@ -440,7 +453,7 @@ export default function Quiz() {
             `}
         >
           <Button title={questionIndex === 5 ? "Finish" : "Next"} />
-        </div>
+        </div> */}
         {/* {console.log(response, "res")} */}
       </div>
 
@@ -450,10 +463,7 @@ export default function Quiz() {
         </div>
       )}
 
-      {
-        console.log(displayOverlay,'displayOverlay')
-        
-      }
+      {console.log(displayOverlay, "displayOverlay")}
     </>
   );
 }

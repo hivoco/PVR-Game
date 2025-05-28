@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 8112",
+    "dev": "next dev --port 8114",
     "build": "next build",
-    "start": "next start --port 8112",
+    "start": "next start --port 8114",
     "lint": "next lint"
   },
   "dependencies": {

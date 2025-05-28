@@ -7,7 +7,11 @@ import { useRef } from "react";
 
 const QuizOverlay = ({ isOptionCorrect }) => {
   const confettiRef = useRef(null);
+  const audioRef = useRef(null);
   useEffect(() => {
+    if(audioRef.current){
+      audioRef.current.play()
+    }
     if (confettiRef.current && isOptionCorrect) {
       confettiRef.current?.fire({
         spread: 360,
@@ -31,7 +35,6 @@ const QuizOverlay = ({ isOptionCorrect }) => {
 
   return (
     <div className="flex justify-center items-center h-svh relative">
-      
       {isOptionCorrect && (
         <Confetti
           ref={confettiRef}
@@ -77,6 +80,13 @@ const QuizOverlay = ({ isOptionCorrect }) => {
         )}
       </div>
       <div className="absolute inset-0 bg-white/15 backdrop-blur-[6px] w-full h-full "></div>
+      <audio
+      preload="auto"
+        ref={audioRef}
+        src={
+          isOptionCorrect ? "/music/rightAnswer.mp3" : "/music/wrongAnswer.mp3"
+        }
+      />
     </div>
   );
 };
