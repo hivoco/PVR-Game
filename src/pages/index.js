@@ -109,12 +109,12 @@
 //   );
 // }
 
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import Header from "@/components/Header";
 import OverText from "@/components/OverText";
+import Link from "next/link";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -200,10 +200,7 @@ export default function Home() {
                   <h2
                     className="text-white text-center text-7xl font-medium leading-none"
                     style={{
-                      textShadow: `
-                    0px 0px 3.81px rgba(255, 255, 255, 1),
-                    0px 0px 7.62px rgba(255, 255, 255, 1)
-                  `,
+                      textShadow: `0px 0px 8px #FFFFFF`,
                     }}
                   >
                     6
@@ -230,10 +227,7 @@ export default function Home() {
                   <h2
                     className="text-white text-center text-7xl font-medium leading-none"
                     style={{
-                      textShadow: `
-                    0px 0px 3.81px rgba(255, 255, 255, 1),
-                    0px 0px 7.62px rgba(255, 255, 255, 1)
-                  `,
+                      textShadow: `0px 0px 8px #FFFFFF`,
                     }}
                   >
                     6
@@ -274,19 +268,23 @@ export default function Home() {
               height={80}
               className="block"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <h2
-                className="text-center text-3xl font-bold text-[#560C0C] leading-16"
-                style={{
-                  textShadow: `
+
+            <Link className={``} 
+              href={"info"}>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h2
+                  className="text-center text-3xl font-bold text-[#560C0C] leading-16"
+                  style={{
+                    textShadow: `
                 0px 0px 3.81px rgba(255, 255, 255, 1),
                 0px 0px 7.62px rgba(255, 255, 255, 1)
               `,
-                }}
-              >
-                START
-              </h2>
-            </div>
+                  }}
+                >
+                  START
+                </h2>
+              </div>
+            </Link>
           </div>
         </section>
       </div>

@@ -49,7 +49,7 @@ function OverInput({ image, placeholder, value, onChange, type = "text" }) {
             onChange={onChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className="inputField w-full max-w-[280px] text-white text-center text-2xl bg-transparent border-none placeholder-white placeholder-opacity-70"
+            className="inputField w-full max-w-[280px] text-white text-center text-2xl bg-transparent border-none placeholder-white/70"
           />
         </div>
       </div>

@@ -48,10 +48,7 @@ function OverText({ image, text }) {
         <h2
           className="text-white text-center text-2xl font-bold bg-transparent"
           style={{
-            textShadow: `
-              0px 0px 3.81px rgba(255, 255, 255, 1),
-              0px 0px 7.62px rgba(255, 255, 255, 1)
-            `,
+            textShadow: `0px 0px 8px #FFFFFF`,
           }}
         >
           {text}
