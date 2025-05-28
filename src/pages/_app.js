@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }) {
   const pagesToPlayOn = [
     "/",
     "/info",
+    "/quiz",
     "/result",
   ];
 

@@ -15,6 +15,7 @@ export function MusicProvider({ children, musicUrl, pagesToPlayOn = [] }) {
   useEffect(() => {
     audioRef.current = new Audio(musicUrl);
     audioRef.current.loop = true;
+    audioRef.current.volume = 0.1
 
     return () => {
       if (audioRef.current) {
