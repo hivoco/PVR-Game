@@ -169,7 +169,6 @@ export default function Quiz() {
     });
     const json = await res.json();
     setResponse(json);
-    setDisplayOverlay(true);
 
     // console.log(json);
   }
@@ -216,7 +215,16 @@ export default function Quiz() {
   //   }
   // }, [response.is_correct]);
 
-  console.log(ansResponseArray, "ansResponseArray");
+  useEffect(() => {
+    if (response === "") return;
+    const timer = setTimeout(() => {
+      setDisplayOverlay(true);
+    }, 500);
+
+    return ()=> clearTimeout(timer)
+  }, [response.question_id]);
+
+  console.log(response, "response");
 
   useEffect(() => {
     if (!displayOverlay) return;
@@ -228,10 +236,8 @@ export default function Quiz() {
     return () => {
       clearTimeout(timer);
       if (!response.user_answer) return;
-      setTimeout(() => {
-        response.user_answer ? nextQuestion() : null;
-        setResponse("");
-      }, 1500);
+      response.user_answer ? nextQuestion() : null;
+      setResponse("");
     };
   }, [displayOverlay]);
 
