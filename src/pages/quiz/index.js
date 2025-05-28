@@ -231,7 +231,7 @@ export default function Quiz() {
 
     const timer = setTimeout(() => {
       setDisplayOverlay(false);
-    }, 1500);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
